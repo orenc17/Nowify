@@ -1,0 +1,13 @@
+---
+version: "2.1"
+services:
+  plex:
+    image: nowify:latest
+    container_name: nowify
+    network_mode: host
+    environment:
+      - VUE_APP_SP_CLIENT_ID=
+      - VUE_APP_SP_CLIENT_SECRET=
+    restart: unless-stopped
+    ports:
+      - 3000:3000
