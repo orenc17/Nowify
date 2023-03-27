@@ -54,18 +54,18 @@
     justify-content: center;
   }
 
-  @media only screen and (min-width: 767px) {
+  @media only screen and (min-height: 767px) {
     flex-flow: row nowrap;
     padding: 10%;
 
     &__cover,
     &__details {
-      width: 50%;
-      max-width: 495px;
+      height: 50%;
+      max-height: 495px;
     }
 
     &__details {
-      text-align: left;
+      text-align: center;
     }
   }
 }
