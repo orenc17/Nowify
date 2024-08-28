@@ -14,5 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Build app
+      run: |
+        npm install -g serve yarn 
+        npm install .
+        yarn build
+      
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
