@@ -3,4 +3,7 @@ xset s noblank
 xset s off
 xset -dpms
 
-firefox-esr --kiosk http://localhost:3000 &
+. /home/pi/.nvm/nvm.sh
+nvm use 14
+serve -s /home/pi/Nowify/ &
+/usr/bin/firefox --kiosk --disable-pinch http://localhost:3000
