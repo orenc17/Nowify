@@ -42,6 +42,7 @@ export default {
       pollPlaying: '',
       playerResponse: {},
       playerData: this.getEmptyPlayer(),
+      lastImage: '',
       colourPalette: '',
       swatches: []
     }
@@ -138,6 +139,18 @@ export default {
       if (!this.player.trackAlbum?.image) {
         return
       }
+
+      /**
+       * Skip refresh on same album
+       */
+      if (this.lastImage == this.player.trackAlbum.image) {
+        return
+      }
+
+      /**
+       * Update last saved image
+       */
+      this.lastImage = this.player.trackAlbum.image
 
       /**
        * Run node-vibrant to get colours.
