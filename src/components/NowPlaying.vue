@@ -236,16 +236,30 @@ export default {
       /**
        * Store the current active track.
        */
-      this.playerData = {
-        playing: this.playerResponse.is_playing,
-        trackArtists: this.playerResponse.item.artists.map(
-          artist => artist.name
-        ),
-        trackTitle: this.playerResponse.item.name,
-        trackId: this.playerResponse.item.id,
-        trackAlbum: {
-          title: this.playerResponse.item.album.name,
-          image: this.playerResponse.item.album.images[0].url
+
+      if (this.playerResponse.currently_playing_type == 'track') {
+        this.playerData = {
+          playing: this.playerResponse.is_playing,
+          trackArtists: this.playerResponse.item.artists.map(
+            artist => artist.name
+          ),
+          trackTitle: this.playerResponse.item.name,
+          trackId: this.playerResponse.item.id,
+          trackAlbum: {
+            title: this.playerResponse.item.album.name,
+            image: this.playerResponse.item.album.images[0].url
+          }
+        }
+      } else if (this.playerResponse.currently_playing_type == 'episode') {
+        this.playerData = {
+          playing: this.playerResponse.is_playing,
+          trackArtists: [this.playerResponse.item.show.name],
+          trackTitle: this.playerResponse.item.name,
+          trackId: this.playerResponse.item.id,
+          trackAlbum: {
+            title: this.playerResponse.item.show.name,
+            image: this.playerResponse.item.show.images[0].url
+          }
         }
       }
     },
