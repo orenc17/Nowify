@@ -15,6 +15,14 @@
   cursor: none;
 
   &__cover,
+  &__details,
+  &__image,
+  &__track
+  &__artists {
+    cursor: none;
+  }
+
+  &__cover,
   &__details {
     padding: var(--spacing-m);
     text-align: center;
